@@ -15,20 +15,14 @@ class Rectangle:
 
     def __add__(self, other):
         if isinstance(other, Rectangle):
-            sq_ = self.get_square() + other.get_square()
-            sq_root = sq_ ** 0.5
-
-            new_self = Rectangle(sq_root, sq_root)
-            return new_self
+            sq_root = (self.get_square() + other.get_square()) ** 0.5
+            return Rectangle(sq_root, sq_root)
         else:
             NotImplemented
 
     def __mul__(self, n):
-        sq_ = self.get_square() * n
-        sq_root = sq_ ** 0.5
-
-        new_self = Rectangle(sq_root, sq_root)
-        return new_self
+        sq_root = (self.get_square() * n) ** 0.5
+        return Rectangle(sq_root, sq_root)
 
     def __str__(self):
         return f"It's a rectangle with an area of {self.get_square()}"
@@ -44,3 +38,4 @@ assert r3.get_square() == 26, 'Test3'
 
 r4 = r1 * 4
 assert r4.get_square() == 32, 'Test4'
+
